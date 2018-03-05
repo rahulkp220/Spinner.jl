@@ -22,9 +22,6 @@ Sample usage:-
 julia> using Spinner
 julia> Spinner.spinner(Spinner.corners)
 
-Styles information:-
-julia> Spinner.styles()
-
 """
 function spinner(style)
 	for i in ncycle(style, MAX_CYCLES)
@@ -35,13 +32,6 @@ function spinner(style)
     end
 end
 
-function styles()
-	for i in [circles, corners, dots, moon, quadrants, vertical_bars]
-		println(i)
-	end
-end
-
 # Exports
 export spinner
-export styles
 end
