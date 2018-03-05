@@ -24,12 +24,16 @@ julia> Spinner.spinner(Spinner.corners)
 
 """
 function spinner(style)
-	for i in ncycle(style, MAX_CYCLES)
-           write(STDOUT, i);
-           flush
-           sleep(0.07)
-           write(STDOUT, "\b")
-    end
+	try
+		for i in ncycle(style, MAX_CYCLES)
+	           write(STDOUT, i);
+	           flush
+	           sleep(0.07)
+	           write(STDOUT, "\b")
+	    end
+	catch 
+		nothing
+	end
 end
 
 # Exports
