@@ -1,0 +1,8 @@
+language: julia
+julia:
+    - 0.6
+script:
+    - julia -e 'Pkg.clone(pwd()); Pkg.build("Spinner"); Pkg.test("Spinner"; coverage=true)';
+after_success:
+    - julia -e 'cd(Pkg.dir("Spinner")); Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())';
+
